@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 - CrossCutting", "{2883A098-448B-4248-9C10-B0614FED0E2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelo.Domain", "ClassLibrary1\Modelo.Domain.csproj", "{67646297-D96A-4DE9-9504-30E00D6123E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Layer.Architecture.Domain", "ClassLibrary1\Layer.Architecture.Domain.csproj", "{67646297-D96A-4DE9-9504-30E00D6123E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelo.Service", "ClassLibrary2\Modelo.Service.csproj", "{F601BA58-160F-4D97-907B-C8C500B32D75}"
 EndProject

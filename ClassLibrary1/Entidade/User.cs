@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Modelo.Domain.Entidade
 {
-    public abstract class BaseEntity
+    public class User : BaseEntity
     {
-        public virtual int Id { get; set; }
+        public string Name { get; set; }
+
+        public string Email { get; set; }
+
+        public string Password { get; set; }
     }
 }

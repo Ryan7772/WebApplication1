@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Modelo.Domain.Entidade;
+using Modelo.infra.Data.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks;   
 
 namespace Modelo.infra.Data.Context
 {

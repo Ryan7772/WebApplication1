@@ -1,4 +1,6 @@
-﻿using Modelo.infra.Data.Context;
+﻿using Modelo.Domain.Entidade;
+using Modelo.Domain.Interfaces;
+using Modelo.infra.Data.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;

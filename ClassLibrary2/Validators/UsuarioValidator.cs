@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using Modelo.Domain.Entidade;
 using System;
 using System.Collections.Generic;
 using System.Linq;
