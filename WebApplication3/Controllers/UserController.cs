@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Modelo.Domain.Entidade;
+using Modelo.Domain.Interfaces;
 using Modelo.Service.Validators;
 using WebApplication3.Model;
 
