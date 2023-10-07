@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Modelo.infra.Data": {
+      "commandName": "Project"
+    },
+    "Perfil 1": {
+      "commandName": "Executable",
+      "executablePath": "Web"
+    }
+  }
+}

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelo.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace Modelo.infra.Data.Repositorio.Interfaces
 {
-    internal class IAlunoRepositorio
+    public interface IAlunoRepositorio
     {
+        Aluno BuscarId(int id);
+        Task<Aluno> InserirAlunos(Aluno aluno);
+        
     }
 }
