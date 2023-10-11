@@ -11,6 +11,11 @@ namespace Modelo.infra.Data.Repositorio.Interfaces
     {
         Aluno BuscarId(int id);
         Task<Aluno> InserirAlunos(Aluno aluno);
-        
+        Task<Aluno>  ListarId(int id);
+        Task<Aluno>  Atualizar(Aluno aluno, int id);
+
+        Task<bool> Apagar(int id);
+
+
     }
 }

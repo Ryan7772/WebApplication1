@@ -1,4 +1,5 @@
-﻿using Modelo.Domain;
+﻿using Microsoft.EntityFrameworkCore;
+using Modelo.Domain;
 using Modelo.infra.Data.Repositorio.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,44 @@ namespace Modelo.infra.Data.Repositorio
             await _bancoContexto.SaveChangesAsync();
 
             return aluno;
+
+        }
+        public async Task<Aluno> ListarId(int id)
+        {
+            return await _bancoContexto.Aluno.FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        public async Task<Aluno> Atualizar(Aluno aluno, int id)
+        {
+            Aluno alunoDb = await ListarId(id);
+
+            if (alunoDb == null) 
+            {
+                throw new Exception($"O Id:{id} do aluno não foi encontrado no banco de dados.");
+            }
+
+            alunoDb.Nome = aluno.Nome;
+
+
+            _bancoContexto.Aluno.Update(alunoDb);
+            await  _bancoContexto.SaveChangesAsync();
+
+            return alunoDb;
+
+        }
+        public async Task<bool> Apagar(int id)
+        {
+            Aluno alunoDb = await ListarId(id);
+
+            if (alunoDb == null)
+            {
+                throw new Exception($"O Id:{id} do aluno não foi encontrado no banco de dados.");
+            }
+
+            _bancoContexto.Aluno.Remove(alunoDb);
+            _bancoContexto.SaveChanges();
+
+            return true;
 
         }
 

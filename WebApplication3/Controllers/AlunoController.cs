@@ -53,6 +53,28 @@ namespace WebApplication3.Controllers
             }
 
         }
+    
+        [HttpPut("{id}")]
+        
+        public async Task<ActionResult<Aluno>> Editar([FromBody] Aluno alunos,  int id)
+        {
+            alunos.Id = id;
+            Aluno aluno = await _alunorepositorio.Atualizar(alunos, id);
+            return Ok(aluno);
+        
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Aluno>> ApagarAluno( int id)
+        {
+            bool apagado = await _alunorepositorio.Apagar(id);
+            return Ok(apagado);
+
+        }
+
 
     }
+
+
 }
+
