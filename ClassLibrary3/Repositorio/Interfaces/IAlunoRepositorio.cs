@@ -15,7 +15,6 @@ namespace Modelo.infra.Data.Repositorio.Interfaces
         Task<Aluno>  Atualizar(Aluno aluno, int id);
 
         Task<bool> Apagar(int id);
-
-
+       
     }
 }

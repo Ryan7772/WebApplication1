@@ -39,12 +39,14 @@ namespace WebApplication3.Controllers
 
         }
         [HttpPost("InserirAluno")]
-        public async Task<ActionResult<Aluno>> InserirosAlunos([FromBody] Aluno alunos)
+        public async Task<IActionResult> InserirosAlunos([FromBody] Aluno aluno)
         {
+            Retorno retorno = new Retorno();
+
             try
             {
-                Aluno aluno = await _alunorepositorio.InserirAlunos(alunos);
-                return Ok(alunos);
+                retorno = _alunoApplication.InserirAluno(aluno);
+                return Ok(retorno);
             }
 
             catch (Exception)
