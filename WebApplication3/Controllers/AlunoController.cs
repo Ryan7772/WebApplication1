@@ -39,19 +39,20 @@ namespace WebApplication3.Controllers
 
         }
         [HttpPost("InserirAluno")]
-        public async Task<IActionResult> InserirosAlunos([FromBody] Aluno aluno)
+        public async Task<ActionResult<Aluno>> InserirosAlunos([FromBody] Aluno aluno)
         {
             Retorno retorno = new Retorno();
-
             try
             {
-                retorno = _alunoApplication.InserirAluno(aluno);
+                await _alunorepositorio.InserirAlunos(aluno);
+                retorno.CarregaRetorno(true, "Aluno foi adicionado com sucesso", 200);
                 return Ok(retorno);
             }
 
             catch (Exception)
             {
-                return BadRequest("Erro");
+                retorno.CarregaRetorno(false, "Aluno não pode ser inserido", 400);
+                return BadRequest(retorno);
             }
 
         }
@@ -69,9 +70,19 @@ namespace WebApplication3.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Aluno>> ApagarAluno( int id)
         {
-            bool apagado = await _alunorepositorio.Apagar(id);
-            return Ok(apagado);
+            Retorno retorno = new Retorno();
+            try
+            {
+                bool apagado = await _alunorepositorio.Apagar(id);
+                retorno.CarregaRetorno(true, "Aluno foi Excluido com sucesso", 200);
+                return Ok(retorno);
+            }
 
+            catch (Exception)
+            {
+                retorno.CarregaRetorno(false, "Aluno não pode ser inserido", 400);
+                return BadRequest(retorno);
+            }
         }
 
 

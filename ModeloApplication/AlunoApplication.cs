@@ -20,41 +20,16 @@ namespace Modelo.Application
             return aluno;
         }
 
-        public Retorno InserirAluno(Aluno aluno)
-        {
-            Retorno retorno = new();
+      
 
-            if (aluno != null)
-            {
-                var mensagem = ValidaAluno(aluno);
-
-                if (mensagem != null)
-                { 
-
-                    retorno.CarregaRetorno(false, mensagem, 200);
-                    return retorno;
-                
-                }
-                _alunorepositorio.InserirAlunos(aluno);
-
-                retorno.CarregaRetorno(true, "Aluno adicionado com sucesso", 200);
-
-            }
-            else
-            {
-                retorno.CarregaRetorno(true, "Nenhum dado foi informado", 200);
-            }
-
-            return retorno;
-        }
 
 
         private string ValidaAluno(Aluno aluno) 
         {
-            string mensagem = "";
+            string mensagem = "Aluno adicionado com sucesso";
 
             if (aluno.Nome.Any())
-                mensagem = "Não é possivelo inserir Nome";
+                mensagem = "Não é possivel inserir Nome";
 
             if (aluno.Nome.Length > 30)
                 mensagem = "O nome do Aluno deve conter 30 caracteres!";

@@ -68,6 +68,19 @@ namespace Modelo.infra.Data.Repositorio
             return true;
 
         }
+        public string ValidaAluno(Aluno aluno)
+        {
+            string mensagem = "Aluno adicionado com sucesso";
+
+            if (aluno.Nome.Any())
+                mensagem = "Não é possivel inserir Nome";
+
+            if (aluno.Nome.Length > 30)
+                mensagem = "O nome do Aluno deve conter 30 caracteres!";
+
+            return mensagem;
+
+        }
 
 
     }
