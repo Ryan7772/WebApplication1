@@ -60,11 +60,21 @@ namespace WebApplication3.Controllers
         [HttpPut("{id}")]
         
         public async Task<ActionResult<Aluno>> Editar([FromBody] Aluno alunos,  int id)
-        {
-            alunos.Id = id;
-            Aluno aluno = await _alunorepositorio.Atualizar(alunos, id);
-            return Ok(aluno);
-        
+        { 
+            Retorno retorno = new Retorno();
+            try
+            {
+                alunos.Id = id;
+                Aluno aluno = await _alunorepositorio.Atualizar(alunos, id);
+                retorno.CarregaRetorno(true, "Aluno foi Editado com Sucesso", 200);
+                return Ok(retorno);
+            }
+
+            catch (Exception)
+            {
+                retorno.CarregaRetorno(false, "Aluno não pode ser Editado", 400);
+                return BadRequest(retorno);
+            }
         }
 
         [HttpDelete("{id}")]

@@ -70,9 +70,9 @@ namespace Modelo.infra.Data.Repositorio
         }
         public string ValidaAluno(Aluno aluno)
         {
-            string mensagem = "Aluno adicionado com sucesso";
+            string mensagem = "";
 
-            if (aluno.Nome.Any())
+            if (!aluno.Nome.Any())
                 mensagem = "Não é possivel inserir Nome";
 
             if (aluno.Nome.Length > 30)
