@@ -38,6 +38,35 @@ namespace WebApplication3.Controllers
             }
 
         }
+        [HttpGet("BuscarDadosAlunos")]
+        public async Task<IActionResult> BuscarDadosAlunos()
+        {
+            Retorno<List<Aluno>> retorno = new(null);
+            try
+            {
+                var alunos = _alunorepositorio.BuscarAlunos();
+
+
+                if (alunos.Any())
+                {
+                    retorno.CarregaRetorno(alunos, true, "Consulta realizada com sucesso", 200);
+                }
+                else
+                {
+                    retorno.CarregaRetorno(true, "Nenhum aluno encontrado", 204);
+                }
+
+                return Ok(retorno);
+
+            }
+            catch (Exception e)
+            {
+                retorno.CarregaRetorno(true, e.Message, 400);
+                return BadRequest(retorno);
+            }
+
+        }
+
         [HttpPost("InserirAluno")]
         public async Task<ActionResult<Aluno>> InserirosAlunos([FromBody] Aluno aluno)
         {

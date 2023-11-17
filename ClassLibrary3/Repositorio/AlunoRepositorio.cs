@@ -35,6 +35,11 @@ namespace Modelo.infra.Data.Repositorio
             return await _bancoContexto.Aluno.FirstOrDefaultAsync(x => x.Id == id);
         }
 
+        public List<Aluno> BuscarAlunos()
+        {
+            return _bancoContexto.Aluno.ToList();
+        }
+
         public async Task<Aluno> Atualizar(Aluno aluno, int id)
         {
             Aluno alunoDb = await ListarId(id);

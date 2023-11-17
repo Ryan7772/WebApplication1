@@ -14,6 +14,8 @@ namespace Modelo.infra.Data.Repositorio.Interfaces
         Task<Aluno>  ListarId(int id);
         Task<Aluno>  Atualizar(Aluno aluno, int id);
 
+        List<Aluno> BuscarAlunos();
+
         Task<bool> Apagar(int id);
         string ValidaAluno(Aluno aluno);
 
